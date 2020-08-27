@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas: v-model</title>
+</head>
+<body>
+    <div id="app">
+
+       <h2 v-upper>{{name}}</h2>
+
+       <h2 v-capitalize>hello world super mateus</h2>
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+    <script>
+
+        Vue.directive('upper', {
+            inserted(el){
+
+                el.innerText = el.innerText.toUpperCase();
+
+            }
+        })
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                 name: 'Hcode'  
+            },
+            directives:{
+                capitalize: function(el){
+                    let word = el.innerText.split(' ');
+
+                    word.forEach((text, index) => {
+                        word[index] = text.charAt(0).toUpperCase() + text.slice(1);
+                    });
+
+                    el.innerText = word.join(' ');
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

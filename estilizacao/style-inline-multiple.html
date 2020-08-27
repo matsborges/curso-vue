@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilo em linha</title>
+</head>
+<body>
+    <div id="app">
+        
+        <div :style="{display: displayStyle}">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis architecto recusandae labore 
+        i nesciunt maxime aliquid quod nam, ab quia, eligendi quidem voluptas tempore eius amet nostrum veritatis?
+        Corrupti, asperiores?</div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script>
+        let app = new Vue({
+            el:"#app",
+            data:{
+               displayStyle: ['-webkit-box', 'moz-box-flex', '-ms-flexbox']
+            }
+        })
+
+    </script>
+</body>
+</html>

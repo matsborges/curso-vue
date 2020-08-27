@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas: v-slote</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <text-component>
+            <template v-slot="header">
+                <h2>Este é o cabeçalho</h2>
+            </template>
+        </text-component>
+
+        <text-component>
+            Larissa de Fátima
+        </text-component>
+
+        <text-component>
+            Marcus Vinicius
+        </text-component>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+    <script>
+        
+        Vue.component('text-component', {
+            template: `
+                <div>
+
+                <header>
+                    <slot name="header"></slot>
+                </header>
+                    <p>
+                        <slot name="nomes"></slot>
+                    </p>
+                <div>
+            
+            
+            
+            `
+        })
+        
+        let app = new Vue({
+            el:"#app",
+            data:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

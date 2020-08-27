@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtros</title>
+</head>
+<body>
+
+    <div id="app">
+
+
+        <h3>{{name | placeholder('Não foi informado nada!')}}</h3>
+        
+        <h1>O meu sálario é {{salary | real }}</h1>
+
+        <input type="text" placeholder="Digite seu sálario" v-model="salary">
+
+        <h2>{{msg | truncate(30)}}</h2>
+      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    
+    
+
+    <script>
+        let app = new Vue({
+            el:"#app",
+            data:{
+                name: 'Hcode Treinamentos',
+                salary: 0,
+                msg:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aliquid error cumque at, illum officiis tempore est excepturi, numquam recusandae dolor ipsa commodiodit quisquam facilis adipisci neque aut.'
+
+            },
+            filters: {
+                upper: (value) => {
+                    return value.toUpperCase();
+                },
+                real: (value) => {
+                    return `R$ ${parseInt(value).toFixed(2)}`;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

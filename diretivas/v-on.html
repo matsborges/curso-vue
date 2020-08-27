@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas: v-model</title>
+</head>
+<body>
+
+    <div id="app">
+
+       <p @mouseenter="reverseMessage">{{message}}</p>
+
+       <hr>
+
+       <input @keyup="filterPersons" type="text" placeholder="Pesquise seu nome aqui">
+
+       <ul>
+           <li v-for="person in personsFiltred">{{person}}</li>
+       </ul>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+    <script>
+        let app = new Vue({
+            el:"#app",
+            data:{
+                message: 'Vue.js é demais!',
+                eventName: 'click',
+                persons: ['Mateus', 'Vinicius', 'Larissa', 'Cristina', 'Rosa', 
+                        'Ana', 'Leandro', 'Marcelo', 'Hadrien', 'Thiago', 'Caio'],
+                personsFiltred: []
+            },
+
+            methods:{
+                reverseMessage(){
+                    this.message = this.message.split('').reverse().join('');
+                },
+
+                filterPersons(event) {
+
+                    this.personsFiltred = this.persons.filter(name => {
+                        
+                        return name.toUpperCase().includes(event.target.value.toUpperCase());
+                })
+              } 
+            },
+
+            mounted(){
+                this.personsFiltred = this.persons
+            }  
+        })
+    </script>
+</body>
+</html>
