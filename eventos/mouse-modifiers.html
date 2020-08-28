@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Eventos</title>
+    
+</head>
+<body>
+    <div id="app">
+        
+        <div class="container">
+
+            <h1>Hcode Treinamentos</h1>
+
+            <form action="" class="form-group">
+                <label for=""></label>
+
+                <input type="text" class="form-control"
+                placeholder="Pressione o botão dir do mouse" @click.right="exec">
+
+                <input type="text" class="form-control"
+                placeholder="Pressione o botão esq do mouse" @click.left="exec">
+
+                <input type="text" class="form-control"
+                placeholder="Pressione o botão do meio do mouse" @click.middle="exec">
+
+            </form>
+        </div>
+        
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script>
+        let app = new Vue({
+            el:"#app",
+            data:{
+               
+            },
+            methods: {
+                exec(e){
+                    console.log(e.type);
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

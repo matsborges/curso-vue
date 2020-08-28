@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Eventos</title>
+    
+</head>
+<body>
+    <div id="app">
+        
+        <div class="container">
+
+            <h1>Hcode Treinamentos</h1>
+
+            <form action="" class="form" @submit.prevent>
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <div class="form-group">
+                            <label for="">Nome</label>
+                            <input type="text" class="form-controls"
+                            name="username" placeholder="Digite seu nome" v-on:keyup.enter="send($event)">
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="">Pressione as teclas abaixo</label>
+                    
+                    <input type="text" class="form-control" placeholder="Pressione Enter" @keyup.enter="exec">
+
+                    <input type="text" class="form-control" placeholder="Pressione Esc" @keyup.esc="exec">
+
+                    <input type="text" class="form-control" placeholder="Pressione Space" @keyup.space="exec">
+                </div>
+            </form>
+            
+        </div>
+        
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script>
+        let app = new Vue({
+            el:"#app",
+            data:{
+               
+            },
+            methods: {
+               send(e){
+                    let form = event.target.form;
+
+                    let data = new FormData(form);
+
+                    for(let value of     data.entries()){
+                        console.log(value);
+                    }   
+               },
+               exec(e){
+                    console.log(e.key);
+               }
+            }
+        })
+
+    </script>
+</body>
+</html>

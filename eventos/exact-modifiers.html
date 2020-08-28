@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Eventos</title>
+    
+</head>
+<body>
+    <div id="app">
+        
+        <div class="container">
+
+            <h1>Hcode Treinamentos</h1>
+
+            <hr>
+
+            <div class="row">
+                <div @click.ctrl.exact="toggleClass" class="col">1</div>
+                <div @click.ctrl.exact="toggleClass" class="col">2</div>
+                <div @click.ctrl.exact="toggleClass" class="col">3</div>
+                <div @click.ctrl.exact="toggleClass" class="col">4</div>
+            </div>
+            
+        </div>
+        
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script>
+        let app = new Vue({
+            el:"#app",
+            data:{
+               
+            },
+            methods: {
+               toggleClass(e){
+                   let el = event.target;
+
+                   let method = (el.classList.contains('bg-info')) ? 'remove': 'add';
+
+                   eval(`el.classList.${method}('bg-info')`);
+
+                   
+
+               }
+            }
+        })
+
+    </script>
+</body>
+</html>
